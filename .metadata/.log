@@ -2967,3 +2967,108 @@ java.lang.RuntimeException
 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+!SESSION 2020-02-28 21:32:57.219 -----------------------------------------------
+eclipse.buildId=Version 1.2.0
+java.version=1.8.0_202
+java.vendor=AdoptOpenJdk
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-02-28 21:33:17.610
+!MESSAGE Log4j initialized with config file F:\Workspace\STM\FreeRTOS\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-02-28 21:33:28.578
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-02-28 21:33:29.385
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-28 21:41:22.302
+!MESSAGE Indexed 'STM32F4_HAL_FREERTOS_LAB3' (34 sources, 98 headers) in 6.24 sec: 9,953 declarations; 43,865 references; 20 unresolved inclusions; 404 syntax errors; 3,477 unresolved names (6.1%)
+
+!ENTRY org.eclipse.jface 2 0 2020-02-28 21:48:22.481
+!MESSAGE Ignored reentrant call while viewer is busy. This is only logged once per viewer instance, but similar calls will still be ignored.
+!STACK 0
+java.lang.RuntimeException
+	at org.eclipse.jface.viewers.ColumnViewer.checkBusy(ColumnViewer.java:764)
+	at org.eclipse.jface.viewers.ColumnViewer.update(ColumnViewer.java:543)
+	at org.eclipse.ui.navigator.CommonViewer.update(CommonViewer.java:512)
+	at org.eclipse.jface.viewers.StructuredViewer.update(StructuredViewer.java:1965)
+	at org.eclipse.ui.internal.navigator.resources.nested.NestedProjectsLabelProvider.lambda$2(NestedProjectsLabelProvider.java:87)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:656)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1595)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1582)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-28 21:51:37.328
+!MESSAGE Indexed 'STM32F4_HAL_FREERTOS_LAB3' (34 sources, 124 headers) in 3.03 sec: 10,669 declarations; 46,014 references; 2 unresolved inclusions; 134 syntax errors; 146 unresolved names (0.26%)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 4 2020-02-28 21:55:08.648
+!MESSAGE NullPointerException while trying to calculated source lookup path. This can be ignored if it occurs while terminating a debug session. See Bug 500988.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.debug.core.sourcelookup.containers.CompositeSourceContainer.getSourceContainers(CompositeSourceContainer.java:127)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:114)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.getSubstitutionsPaths(GdbSourceLookupDirector.java:72)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.getSubstitutionsPaths(GDBSourceLookup.java:103)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.sourceContainersChanged(GDBSourceLookup.java:118)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant.sourceContainersChangedOnDispatchThread(GdbSourceLookupParticipant.java:120)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant$1.run(GdbSourceLookupParticipant.java:85)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 4 2020-02-28 21:59:21.625
+!MESSAGE NullPointerException while trying to calculated source lookup path. This can be ignored if it occurs while terminating a debug session. See Bug 500988.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.debug.core.sourcelookup.containers.CompositeSourceContainer.getSourceContainers(CompositeSourceContainer.java:127)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:114)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.getSubstitutionsPaths(GdbSourceLookupDirector.java:72)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.getSubstitutionsPaths(GDBSourceLookup.java:103)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.sourceContainersChanged(GDBSourceLookup.java:118)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant.sourceContainersChangedOnDispatchThread(GdbSourceLookupParticipant.java:120)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant$1.run(GdbSourceLookupParticipant.java:85)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-28 22:09:13.521
+!MESSAGE Indexed 'STM32F4_HAL_FREERTOS_LAB1' (35 sources, 128 headers) in 2.65 sec: 10,956 declarations; 46,361 references; 2 unresolved inclusions; 134 syntax errors; 146 unresolved names (0.25%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-28 22:11:32.042
+!MESSAGE Indexed 'STM32F4_HAL_FREERTOS_LAB1' (34 sources, 124 headers) in 2.52 sec: 11,130 declarations; 48,893 references; 2 unresolved inclusions; 134 syntax errors; 146 unresolved names (0.24%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-28 22:13:42.842
+!MESSAGE Indexed 'STM32F4_HAL_FREERTOS_LAB3' (34 sources, 124 headers) in 2.48 sec: 11,117 declarations; 48,887 references; 2 unresolved inclusions; 134 syntax errors; 146 unresolved names (0.24%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-28 22:35:42.083
+!MESSAGE Indexed 'STM32F4_HAL_FREERTOS_LAB3' (34 sources, 124 headers) in 2.3 sec: 11,122 declarations; 48,900 references; 2 unresolved inclusions; 134 syntax errors; 146 unresolved names (0.24%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-28 22:38:08.947
+!MESSAGE Indexed 'STM32F4_HAL_FREERTOS_LAB1' (34 sources, 124 headers) in 2.46 sec: 10,682 declarations; 46,029 references; 2 unresolved inclusions; 134 syntax errors; 146 unresolved names (0.26%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-28 22:44:11.152
+!MESSAGE Indexed 'STM32F4_HAL_FREERTOS_LAB2' (34 sources, 124 headers) in 2.31 sec: 10,672 declarations; 46,008 references; 2 unresolved inclusions; 134 syntax errors; 146 unresolved names (0.26%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-28 22:45:26.366
+!MESSAGE Indexed 'STM32F4_HAL_FREERTOS_LAB2' (34 sources, 124 headers) in 2.33 sec: 10,672 declarations; 46,008 references; 2 unresolved inclusions; 134 syntax errors; 146 unresolved names (0.26%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-28 22:56:05.938
+!MESSAGE Indexed 'STM32F4_HAL_FREERTOS_LAB2' (34 sources, 124 headers) in 2.33 sec: 10,680 declarations; 46,085 references; 2 unresolved inclusions; 134 syntax errors; 146 unresolved names (0.26%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-28 23:17:02.112
+!MESSAGE Indexed 'STM32F4_HAL_FREERTOS_LAB3' (34 sources, 124 headers) in 2.42 sec: 10,679 declarations; 46,035 references; 2 unresolved inclusions; 134 syntax errors; 146 unresolved names (0.26%)

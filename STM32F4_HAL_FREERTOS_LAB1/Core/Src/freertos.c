@@ -25,7 +25,7 @@
 #include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
+/* USER CODE BEGIN Includes */     
 #include <stdio.h>
 /* USER CODE END Includes */
 
@@ -48,77 +48,85 @@
 /* USER CODE BEGIN Variables */
 
 /* USER CODE END Variables */
-/* Definitions for task1 */
-osThreadId_t task1Handle;
-const osThreadAttr_t task1_attributes = { .name = "task1", .priority =
-		(osPriority_t) osPriorityAboveNormal, .stack_size = 128 * 4 };
-/* Definitions for task2 */
-osThreadId_t task2Handle;
-const osThreadAttr_t task2_attributes = { .name = "task2", .priority =
-		(osPriority_t) osPriorityAboveNormal, .stack_size = 128 * 4 };
-/* Definitions for task3 */
-osThreadId_t task3Handle;
-const osThreadAttr_t task3_attributes = { .name = "task3", .priority =
-		(osPriority_t) osPriorityNormal, .stack_size = 128 * 4 };
-/* Definitions for task4 */
-osThreadId_t task4Handle;
-const osThreadAttr_t task4_attributes = { .name = "task4", .priority =
-		(osPriority_t) osPriorityNormal, .stack_size = 128 * 4 };
+osThreadId task1Handle;
+osThreadId task2Handle;
+osThreadId task3Handle;
+osThreadId task4Handle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 
 /* USER CODE END FunctionPrototypes */
 
-void StartTask01(void *argument);
-void StartTask02(void *argument);
-void StartTask03(void *argument);
-void StartTask04(void *argument);
+void StartTask01(void const * argument);
+void StartTask02(void const * argument);
+void StartTask03(void const * argument);
+void StartTask04(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
+/* GetIdleTaskMemory prototype (linked to static allocation support) */
+void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
+
+/* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
+static StaticTask_t xIdleTaskTCBBuffer;
+static StackType_t xIdleStack[configMINIMAL_STACK_SIZE];
+  
+void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize )
+{
+  *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
+  *ppxIdleTaskStackBuffer = &xIdleStack[0];
+  *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
+  /* place for user code */
+}                   
+/* USER CODE END GET_IDLE_TASK_MEMORY */
+
 /**
- * @brief  FreeRTOS initialization
- * @param  None
- * @retval None
- */
+  * @brief  FreeRTOS initialization
+  * @param  None
+  * @retval None
+  */
 void MX_FREERTOS_Init(void) {
-	/* USER CODE BEGIN Init */
+  /* USER CODE BEGIN Init */
 
-	/* USER CODE END Init */
+  /* USER CODE END Init */
 
-	/* USER CODE BEGIN RTOS_MUTEX */
+  /* USER CODE BEGIN RTOS_MUTEX */
 	/* add mutexes, ... */
-	/* USER CODE END RTOS_MUTEX */
+  /* USER CODE END RTOS_MUTEX */
 
-	/* USER CODE BEGIN RTOS_SEMAPHORES */
+  /* USER CODE BEGIN RTOS_SEMAPHORES */
 	/* add semaphores, ... */
-	/* USER CODE END RTOS_SEMAPHORES */
+  /* USER CODE END RTOS_SEMAPHORES */
 
-	/* USER CODE BEGIN RTOS_TIMERS */
+  /* USER CODE BEGIN RTOS_TIMERS */
 	/* start timers, add new ones, ... */
-	/* USER CODE END RTOS_TIMERS */
+  /* USER CODE END RTOS_TIMERS */
 
-	/* USER CODE BEGIN RTOS_QUEUES */
+  /* USER CODE BEGIN RTOS_QUEUES */
 	/* add queues, ... */
-	/* USER CODE END RTOS_QUEUES */
+  /* USER CODE END RTOS_QUEUES */
 
-	/* Create the thread(s) */
-	/* creation of task1 */
-	task1Handle = osThreadNew(StartTask01, NULL, &task1_attributes);
+  /* Create the thread(s) */
+  /* definition and creation of task1 */
+  osThreadDef(task1, StartTask01, osPriorityAboveNormal, 0, 128);
+  task1Handle = osThreadCreate(osThread(task1), NULL);
 
-	/* creation of task2 */
-	task2Handle = osThreadNew(StartTask02, NULL, &task2_attributes);
+  /* definition and creation of task2 */
+  osThreadDef(task2, StartTask02, osPriorityAboveNormal, 0, 128);
+  task2Handle = osThreadCreate(osThread(task2), NULL);
 
-	/* creation of task3 */
-	task3Handle = osThreadNew(StartTask03, NULL, &task3_attributes);
+  /* definition and creation of task3 */
+  osThreadDef(task3, StartTask03, osPriorityNormal, 0, 128);
+  task3Handle = osThreadCreate(osThread(task3), NULL);
 
-	/* creation of task4 */
-	task4Handle = osThreadNew(StartTask04, NULL, &task4_attributes);
+  /* definition and creation of task4 */
+  osThreadDef(task4, StartTask04, osPriorityNormal, 0, 128);
+  task4Handle = osThreadCreate(osThread(task4), NULL);
 
-	/* USER CODE BEGIN RTOS_THREADS */
+  /* USER CODE BEGIN RTOS_THREADS */
 	/* add threads, ... */
-	/* USER CODE END RTOS_THREADS */
+  /* USER CODE END RTOS_THREADS */
 
 }
 
@@ -129,14 +137,15 @@ void MX_FREERTOS_Init(void) {
  * @retval None
  */
 /* USER CODE END Header_StartTask01 */
-void StartTask01(void *argument) {
-	/* USER CODE BEGIN StartTask01 */
+void StartTask01(void const * argument)
+{
+  /* USER CODE BEGIN StartTask01 */
 	/* Infinite loop */
 	for (;;) {
-		printf("task1: %lu\r\n", osKernelGetTickCount());
+		printf("task1: %lu\r\n", osKernelSysTick());
 		osDelay(1000);
 	}
-	/* USER CODE END StartTask01 */
+  /* USER CODE END StartTask01 */
 }
 
 /* USER CODE BEGIN Header_StartTask02 */
@@ -146,14 +155,15 @@ void StartTask01(void *argument) {
  * @retval None
  */
 /* USER CODE END Header_StartTask02 */
-void StartTask02(void *argument) {
-	/* USER CODE BEGIN StartTask02 */
+void StartTask02(void const * argument)
+{
+  /* USER CODE BEGIN StartTask02 */
 	/* Infinite loop */
 	for (;;) {
-		printf("task2: %lu\r\n", osKernelGetTickCount());
+		printf("task2: %lu\r\n", osKernelSysTick());
 		osDelay(1000);
 	}
-	/* USER CODE END StartTask02 */
+  /* USER CODE END StartTask02 */
 }
 
 /* USER CODE BEGIN Header_StartTask03 */
@@ -163,14 +173,15 @@ void StartTask02(void *argument) {
  * @retval None
  */
 /* USER CODE END Header_StartTask03 */
-void StartTask03(void *argument) {
-	/* USER CODE BEGIN StartTask03 */
+void StartTask03(void const * argument)
+{
+  /* USER CODE BEGIN StartTask03 */
 	/* Infinite loop */
 	for (;;) {
-		printf("task3: %lu\r\n", osKernelGetTickCount());
+		printf("task3: %lu\r\n", osKernelSysTick());
 		HAL_Delay(1000);
 	}
-	/* USER CODE END StartTask03 */
+  /* USER CODE END StartTask03 */
 }
 
 /* USER CODE BEGIN Header_StartTask04 */
@@ -180,14 +191,15 @@ void StartTask03(void *argument) {
  * @retval None
  */
 /* USER CODE END Header_StartTask04 */
-void StartTask04(void *argument) {
-	/* USER CODE BEGIN StartTask04 */
+void StartTask04(void const * argument)
+{
+  /* USER CODE BEGIN StartTask04 */
 	/* Infinite loop */
 	for (;;) {
-		printf("task4: %lu\r\n", osKernelGetTickCount());
+		printf("task4: %lu\r\n", osKernelSysTick());
 		HAL_Delay(1000);
 	}
-	/* USER CODE END StartTask04 */
+  /* USER CODE END StartTask04 */
 }
 
 /* Private application code --------------------------------------------------*/
