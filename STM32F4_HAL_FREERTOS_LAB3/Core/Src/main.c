@@ -97,7 +97,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  printf("Don't remove this to prevent hardfault\r\n");
+  printf("Don't remove this printf for debugging.\n");
 
   /* USER CODE END 2 */
 
