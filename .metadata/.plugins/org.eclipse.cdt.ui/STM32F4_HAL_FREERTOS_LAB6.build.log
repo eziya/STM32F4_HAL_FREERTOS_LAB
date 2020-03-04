@@ -1,7 +1,7 @@
-22:54:06 **** Clean-only build of configuration Debug for project STM32F4_HAL_FREERTOS_LAB6 ****
+21:44:24 **** Clean-only build of configuration Debug for project STM32F4_HAL_FREERTOS_LAB6 ****
 make -j4 clean 
 rm -rf *
  
 
-22:54:07 Build Finished. 0 errors, 0 warnings. (took 622ms)
+21:44:24 Build Finished. 0 errors, 0 warnings. (took 623ms)
 
