@@ -1,7 +1,7 @@
-23:31:14 **** Clean-only build of configuration Debug for project STM32F4_HAL_FREERTOS_LAB9 ****
+07:40:14 **** Clean-only build of configuration Debug for project STM32F4_HAL_FREERTOS_LAB9 ****
 make -j4 clean 
-rm -rf *
- 
+make: *** No rule to make target 'clean'.  Stop.
+"make -j4 clean" terminated with exit code 2. Build might be incomplete.
 
-23:31:15 Build Finished. 0 errors, 0 warnings. (took 632ms)
+07:40:14 Build Failed. 1 errors, 0 warnings. (took 237ms)
 
