@@ -3,9 +3,9 @@
 	<section name="ShowViewDialog">
 		<item key="DIALOG_X_ORIGIN" value="334"/>
 		<item key="DIALOG_Y_ORIGIN" value="282"/>
-		<item key="DIALOG_WIDTH" value="357"/>
-		<item key="DIALOG_HEIGHT" value="452"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.75|0|WINDOWS|1|-13|0|0|0|400|0|0|0|-127|3|2|1|50|맑은 고딕"/>
+		<item key="DIALOG_WIDTH" value="321"/>
+		<item key="DIALOG_HEIGHT" value="439"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 		<item key="ShowViewDialog.STORE_SELECTED_VIEW_ID" value="org.eclipse.cdt.dsf.gdb.ui.osresources.view"/>
 		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="Debug"/>
